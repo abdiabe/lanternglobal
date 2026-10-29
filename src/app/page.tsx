@@ -1,154 +1,20 @@
-import type { Metadata } from "next";
-import { Hero } from "@/components/home/Hero";
-import { TrustStrip, DegreeAdvantage, HowItWorksPreview, Comparison, TeamScaling } from "@/components/home/Sections";
-import { IndustryTabs, type IndustryTabData } from "@/components/home/IndustryTabs";
-import { Section, SectionHeading, Reveal } from "@/components/ui/Section";
-import { ButtonLink, TextLink } from "@/components/ui/Button";
-import { DivisionCard, IndustryCard } from "@/components/cards/Cards";
-import { BlogCard } from "@/components/cards/BlogCard";
-import { FaqAccordion } from "@/components/ui/Accordion";
-import { CtaBanner } from "@/components/sections/CtaBanner";
-import { divisions, getSpecialtyBySlug, specialtyCount } from "@/content/divisions";
-import { featuredIndustries, getIndustry } from "@/content/industries";
-import { homeFaqs } from "@/content/faqs";
-import { getAllPosts } from "@/lib/blog";
-import { buildMetadata } from "@/lib/seo";
-
-export const metadata: Metadata = {
-  ...buildMetadata({
-    title: "Dedicated, University-Educated Professionals from the Philippines",
-    description:
-      "Lantern Global is a U.S.-based staffing partner connecting American businesses with dedicated, degree-holding professionals in the Philippines across 12 specialties.",
-    path: "/",
-  }),
-  title: { absolute: "Lantern Global | Dedicated, University-Educated Professionals from the Philippines" },
-};
-
-function tabData(): IndustryTabData[] {
-  return ["property-management", "construction-and-trades", "healthcare-organizations", "technology-companies"].map((slug) => {
-    const ind = getIndustry(slug)!;
-    return {
-      slug,
-      name: ind.name,
-      headline: ind.headline,
-      team: ind.exampleTeam.map((m) => {
-        const s = getSpecialtyBySlug(m.role)!;
-        return { title: s.title, href: s.href, focus: m.focus, summary: s.summary };
-      }),
-    };
-  });
-}
-
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight, ArrowDown, Check } from 'lucide-react';
+import { BusinessMatcher } from '@/components/home/BusinessMatcher';
+import { FinalCta, FaqList, Journey } from '@/components/sections/Redesign';
+import { roles, sourcing } from '@/content/matcher';
+import { buildMetadata } from '@/lib/seo';
+export const metadata = buildMetadata({ title: 'Virtual support for U.S. small businesses', description: 'Reliable virtual support at a cost your small business can manage. Explore roles, find your business fit, and talk through your needs with Lantern Global.', path: '/' });
 export default function HomePage() {
-  const posts = getAllPosts().slice(0, 3);
-
-  return (
-    <>
-      <Hero />
-      <TrustStrip />
-
-      <Section labelledBy="specialties-heading">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading
-            id="specialties-heading"
-            eyebrow="Our professional specialties"
-            title="Specialized Talent for Every Part of Your Business"
-            description="Explore a broad range of professional services designed to support your daily operations, strengthen your capabilities, and help your company grow."
-          />
-          <TextLink href="/services/directory" className="shrink-0">
-            Search all {specialtyCount} specialties
-          </TextLink>
-        </div>
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {divisions.map((d, i) => (
-            <Reveal as="li" key={d.slug} delay={(i % 4) * 60}>
-              <DivisionCard division={d} />
-            </Reveal>
-          ))}
-        </ul>
-      </Section>
-
-      <DegreeAdvantage />
-      <HowItWorksPreview />
-
-      <Section tone="surface" labelledBy="industries-heading">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading
-            id="industries-heading"
-            eyebrow="Featured industries"
-            title="Support Shaped Around How Your Industry Works"
-            description="Every industry has its own systems, rhythms, and rules. Our industry pages explain the real operational challenges and the professionals who help."
-          />
-          <TextLink href="/industries" className="shrink-0">
-            All 12 industries
-          </TextLink>
-        </div>
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredIndustries.map((ind, i) => (
-            <Reveal as="li" key={ind.slug} delay={(i % 3) * 70}>
-              <IndustryCard industry={ind} />
-            </Reveal>
-          ))}
-        </ul>
-      </Section>
-
-      <Comparison />
-      <TeamScaling />
-
-      <Section tone="brand-soft" labelledBy="capabilities-heading">
-        <SectionHeading
-          id="capabilities-heading"
-          eyebrow="Industries and capabilities"
-          title="Several Specialists. One Business. Working Together."
-          description="See how dedicated professionals in different specialties can support a single company. Each team is illustrative; yours is built around your needs."
-        />
-        <div className="mt-10">
-          <IndustryTabs data={tabData()} />
-        </div>
-      </Section>
-
-      <Section labelledBy="faq-heading">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SectionHeading
-              id="faq-heading"
-              eyebrow="Frequently asked questions"
-              title="Clear Answers Before You Commit"
-              description="Straight answers about qualifications, schedules, management, and pricing."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/faq" variant="secondary" arrow>
-                All FAQs
-              </ButtonLink>
-            </div>
-          </div>
-          <FaqAccordion items={homeFaqs} />
-        </div>
-      </Section>
-
-      {posts.length > 0 && (
-        <Section tone="surface" labelledBy="blog-heading">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading
-              id="blog-heading"
-              eyebrow="From the blog"
-              title="Practical Guidance for Building a Remote Team"
-            />
-            <TextLink href="/blog" className="shrink-0">
-              Read the blog
-            </TextLink>
-          </div>
-          <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((p, i) => (
-              <Reveal as="li" key={p.slug} delay={i * 80}>
-                <BlogCard post={p} />
-              </Reveal>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      <CtaBanner />
-    </>
-  );
+    return <>
+    <section className="lg-hero"><div className="lg-container hero-layout"><div className="hero-copy"><p className="lg-eyebrow"><span />Global talent. Small business focus.</p><h1>Your business.<br />With room<br />to <em>grow.</em></h1><p className="hero-description">Reliable virtual support for the work that fills your day. Built around your small business—and a budget that works for you.</p><div className="hero-actions"><Link href="/book-a-call" className="lg-button">Let’s talk about your business <ArrowRight size={18}/></Link><a href="#business-matcher" className="hero-secondary">Find your support <ArrowDown size={17}/></a></div><p className="hero-footnote">A practical next step for U.S. small business owners.</p></div><figure className="hero-figure"><div className="hero-photo"><Image src="/images/photos/hero-professional-video-call.webp" alt="A professional on a video call from a naturally lit home workspace" fill priority sizes="(max-width: 760px) 100vw, 44vw"/><div className="photo-label"><span className="small-dot"/>More space for the work that matters.</div></div><figcaption>Work, from anywhere. Illustrative stock photography.</figcaption></figure></div></section>
+    <div className="principle-strip"><div className="lg-container">{['Small business at the center', 'Roles shaped around real work', 'A conversation about your budget'].map(t => <span key={t}><Check size={16}/>{t}</span>)}</div></div>
+    <BusinessMatcher />
+    <section className="lg-section"><div className="lg-container"><div className="section-intro"><div><p className="lg-eyebrow">A clear path forward</p><h2>Good support starts<br />with understanding.</h2></div><Link className="lg-text-link" href="/how-it-works">How it works <ArrowRight size={17}/></Link></div><Journey /></div></section>
+    <section className="global-section lg-section"><div className="lg-container global-layout"><div><p className="lg-eyebrow">Broader horizons. Personal attention.</p><h2>Talent is global.<br />Your business is personal.</h2><p>Running a small business takes care, judgment, and a lot of follow-through. The right virtual support can give everyday work the attention it deserves.</p><p>{sourcing}</p><Link className="lg-text-link" href="/about">Meet the idea behind Lantern <ArrowRight size={17}/></Link></div><div className="market-list"><span className="market-heading">Our intended sourcing markets</span>{[['01', 'Philippines'], ['02', 'Kenya'], ['03', 'Egypt'], ['04', 'South Africa']].map(([n, c]) => <div key={c}><span>{n}</span><h3>{c}</h3><span aria-hidden="true">↗</span></div>)}<p>A global direction. Role and market availability to be confirmed.</p></div></div></section>
+    <section className="lg-section"><div className="lg-container"><div className="section-intro"><div><p className="lg-eyebrow">The right work, in the right hands</p><h2>Support beyond<br />the overflowing inbox.</h2></div><p>From everyday administration to focused technical work, start with what your business needs.</p></div><div className="role-directory">{roles.map((r, i) => <Link key={r.slug} href={`/roles/${r.slug}`}><span>{String(i + 1).padStart(2, '0')}</span><h3>{r.name}</h3><ArrowRight size={19}/></Link>)}</div></div></section>
+    <section className="budget-section"><div className="lg-container budget-layout"><div><p className="lg-eyebrow">Make the numbers work for you</p><h2>Meaningful help.<br />A manageable cost.</h2></div><div><p>Start with a defined set of responsibilities and the hours you actually need. Discuss the cost, experience, and level of support together—before deciding what fits.</p><p>We do not publish a one-size-fits-all rate. Bring your workload and budget to the conversation.</p><Link className="lg-button" href="/pricing">Explore your options <ArrowRight size={17}/></Link></div></div></section>
+    <section className="lg-section comparison-section"><div className="lg-container"><div className="section-intro"><div><p className="lg-eyebrow">Choose with the full picture</p><h2>Compare the arrangement.<br />Not just the hourly rate.</h2></div><p>Ask the same questions of every option before deciding what works for your business.</p></div><div className="comparison-scroll"><table><caption className="sr-only">Questions to ask when comparing support options</caption><thead><tr><th scope="col">What to clarify</th><th scope="col">Hiring directly</th><th scope="col">Project freelancer</th><th scope="col">Virtual support with Lantern</th></tr></thead><tbody><tr><th scope="row">Scope</th><td>Which responsibilities belong in the job?</td><td>What deliverables define the project?</td><td>Which recurring tasks need support?</td></tr><tr><th scope="row">Cost</th><td>What is the full employment cost?</td><td>What does the project quote include?</td><td>What is included in the agreed scope and hours?</td></tr><tr><th scope="row">Working together</th><td>Who manages the role day to day?</td><td>How are changes and handovers handled?</td><td>How will priorities, access, and communication work?</td></tr></tbody></table></div></div></section><section className="lg-section"><div className="lg-container faq-layout"><div><p className="lg-eyebrow">A few things you may be wondering</p><h2>Let’s make<br />things clear.</h2><p>Answers about the work, the people, and your next step.</p><Link href="/faq" className="lg-text-link">More questions? Start here <ArrowRight size={16}/></Link></div><FaqList /></div></section><FinalCta />
+    </>;
 }

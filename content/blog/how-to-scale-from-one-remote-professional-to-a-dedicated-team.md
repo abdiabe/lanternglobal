@@ -7,7 +7,7 @@ image: "office-desk-team"
 draft: true
 ---
 
-> DRAFT. Not published. Write the full article before setting `draft: false` and update `date` to the actual publication date.
+> DRAFT. Not published. Write the full article before setting `draft: true` and update `date` to the actual publication date.
 > Do not add statistics, studies, or legal requirements without a reliable source.
 
 ## Planned outline

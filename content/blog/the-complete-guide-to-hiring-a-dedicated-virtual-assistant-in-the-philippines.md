@@ -7,6 +7,7 @@ image: "remote-work-laptop"
 imageAlt: "Remote professional working on a laptop from a home workspace"
 featured: true
 relatedServices: ["virtual-assistance-and-administration"]
+draft: true
 ---
 
 Hiring a virtual assistant in the Philippines is one of the most common first steps U.S. businesses take toward building a remote team. Done well, it frees owners and managers from hours of coordination every week. Done poorly, it becomes one more thing to manage.

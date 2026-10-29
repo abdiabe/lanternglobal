@@ -6,6 +6,7 @@ date: "2026-10-25"
 image: "video-conference-office"
 imageAlt: "Professional on a video conference in a high-rise office"
 relatedServices: ["virtual-assistance-and-administration", "accounting-and-finance"]
+draft: true
 ---
 
 Some hiring advice treats degrees as outdated, arguing that only skills matter. Other advice treats a degree as a guarantee of competence. Neither view is very useful when you are hiring a remote professional you may never meet in person.

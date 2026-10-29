@@ -38,5 +38,5 @@ test("published blog posts are not backdated before launch and reference license
       assert.ok(date >= "2026-10-25", `${f} is dated before launch`);
     }
   }
-  assert.ok(published >= 6, `expected at least 6 published posts, found ${published}`);
+  assert.ok(published >= 3 && published <= 5, `expected 3 to 5 focused published posts, found ${published}`);
 });

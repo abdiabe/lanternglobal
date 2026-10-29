@@ -1,19 +1,23 @@
 ---
-title: "10 Business Tasks You Can Delegate to a Remote Operations Coordinator"
-description: "Draft article. 10 Business Tasks You Can Delegate to a Remote Operations Coordinator: practical guidance for U.S. businesses working with remote professionals."
+title: "What to hand over first in a small business"
+description: "Practical ideas for U.S. small business owners defining tasks, responsibilities, and a useful working relationship with virtual support."
 category: "business-operations"
-date: "2026-10-25"
-image: "operations-warehouse-tablet"
-draft: true
+date: "2026-10-29"
+author: "Lantern Global"
+image: "va-admin-laptop"
+draft: false
 ---
 
-> DRAFT. Not published. Write the full article before setting `draft: false` and update `date` to the actual publication date.
-> Do not add statistics, studies, or legal requirements without a reliable source.
+## Start with recurring work you can explain
 
-## Planned outline
+Choose three tasks that come back every week: updating records, confirming appointments, or organizing document requests. Write down the input, the expected result, and when each task is due. A defined handover is easier to review than a broad instruction to handle the office.
 
-- Vendor follow-up and work orders
-- Scheduling and dispatch support
-- Weekly operations reporting
-- Process documentation
-- Order and status tracking
+## Make a simple task brief
+
+For each task, include a worked example, the tool used, and the person who approves exceptions. List what the professional may decide independently and what must come back to you. Leave sensitive client details out of the initial staffing inquiry.
+
+## Review the scope together
+
+Track the time and attention the tasks need before deciding on hours. Discuss the workload, experience, and budget together. Add responsibilities when the first set has a clear process.
+
+[Find the support that fits your business](/#business-matcher).

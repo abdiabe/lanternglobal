@@ -6,6 +6,7 @@ date: "2026-10-25"
 image: "support-professional-headphones"
 imageAlt: "Smiling professional wearing a headset at a computer workstation"
 relatedServices: ["virtual-assistance-and-administration"]
+draft: true
 ---
 
 "Hire a virtual assistant" has become shorthand for almost any kind of remote help. That shorthand causes problems. A business that needs monthly reconciliations hires a generalist and wonders why the books still are not right. Another hires an expensive specialist when what it really needed was someone to manage a calendar and inbox.

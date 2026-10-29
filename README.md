@@ -1,6 +1,6 @@
 # Lantern Global Website
 
-Marketing website and lead-generation system for **Lantern Global**, a U.S.-based professional staffing and outsourcing company placing dedicated, university-educated professionals from the Philippines with U.S. businesses.
+Marketing website for **Lantern Global**, focused on reliable virtual support for U.S. small businesses, with intended global talent sourcing.
 
 ## Stack
 
@@ -11,7 +11,7 @@ Marketing website and lead-generation system for **Lantern Global**, a U.S.-base
 | Components | Hand-built components on Radix primitives (navigation menu, dialog, accordion) and Lucide icons |
 | Content | Typed TypeScript data for services and industries; Markdown with validated frontmatter for blog, guides, and legal pages |
 | Forms | Route handlers with Zod validation, honeypot, timing check, rate limiting, optional Turnstile, delivery by Resend email and/or webhook |
-| Fonts | Inter and Plus Jakarta Sans, self-hosted with `next/font/local` |
+| Fonts | Self-hosted Inter body text and system Georgia serif headlines |
 
 ## Quick start
 
@@ -64,3 +64,13 @@ tests/             Node test runner suites
 - [docs/SEO-PLAN.md](docs/SEO-PLAN.md): page-to-keyword map, structured data, indexing rules
 - [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md): tokens, typography, components, motion, accessibility
 - [docs/IMAGE-LICENSES.md](docs/IMAGE-LICENSES.md): license record for every photo
+
+## Redesign review (October 2026)
+
+The active experience focuses on U.S. small businesses with intended sourcing across the Philippines, Kenya, Egypt, and South Africa. See **docs/REDESIGN-REVIEW.md** for business confirmations, scope, and verification. See **docs/ASSET-NOTES.md** for the supplied logo and reviewed stock imagery.
+
+The new main routes are `/roles`, `/for/[slug]`, `/industries`, and `/book-a-call`. Legacy catalog and finder URLs redirect to the consolidated experience. The matcher and core role content live in `src/content/matcher.ts`.
+
+The brief form uses the existing contact endpoint. Without delivery configuration it offers a local `.txt` brief download and does not claim to send anything. Final legal policies, verified contacts, and operating terms must be approved before launch. Legal draft source files remain preserved, but their placeholders are not rendered publicly.
+
+Development preview: `npm run dev -- --hostname 127.0.0.1`.

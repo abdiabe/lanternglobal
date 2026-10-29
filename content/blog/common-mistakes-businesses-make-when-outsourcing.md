@@ -1,19 +1,23 @@
 ---
-title: "Common Mistakes Businesses Make When Outsourcing"
-description: "Draft article. Common Mistakes Businesses Make When Outsourcing: practical guidance for U.S. businesses working with remote professionals."
+title: "Four questions before adding virtual support"
+description: "Practical ideas for U.S. small business owners defining tasks, responsibilities, and a useful working relationship with virtual support."
 category: "outsourcing-strategy"
-date: "2026-10-25"
-image: "professional-services-meeting"
-draft: true
+date: "2026-10-29"
+author: "Lantern Global"
+image: "documents-sticky-notes"
+draft: false
 ---
 
-> DRAFT. Not published. Write the full article before setting `draft: false` and update `date` to the actual publication date.
-> Do not add statistics, studies, or legal requirements without a reliable source.
+## What work actually needs a hand?
 
-## Planned outline
+Name the recurring tasks rather than starting with a long list of job titles. Distinguish the administrative work from decisions that need your own professional judgment. A clear scope makes the staffing conversation more useful.
 
-- Vague roles
-- Choosing on rate alone
-- No onboarding plan
-- Shared passwords and excessive access
-- No feedback loop
+## How will we work together?
+
+Decide who sets priorities, how progress is reported, and where questions go. Discuss time-zone overlap, tools, and the level of experience the tasks need. Put examples in your brief so both sides understand the expected result.
+
+## What needs to be agreed?
+
+Ask what the quoted cost includes and which responsibilities stay with you. Confirm hours, supervision, access, payment, and any cancellation or replacement terms before proceeding. Do not assume a service includes something that has not been agreed.
+
+[Find the support that fits your business](/#business-matcher).

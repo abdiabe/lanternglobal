@@ -1,22 +1,8 @@
-import { PageHero } from "@/components/sections/PageHero";
-import { Section } from "@/components/ui/Section";
-import { LegalReviewBanner, LongForm } from "@/components/sections/LongForm";
-import { loadGuide } from "@/lib/markdown";
-import { formatDate } from "@/lib/utils";
-
-export async function LegalPage({ slug, path }: { slug: string; path: string }) {
-  const { meta, html, headings } = await loadGuide(slug, "legal");
-  return (
-    <>
-      <PageHero breadcrumbs={[{ name: meta.title, path }]} eyebrow="Legal" title={meta.title} description={meta.description}>
-        <p className="mt-6 text-sm text-muted">Last updated {formatDate(meta.updated)}</p>
-      </PageHero>
-      <Section>
-        <LongForm toc={headings.map((h) => ({ id: h.id, label: h.text }))}>
-          <LegalReviewBanner />
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </LongForm>
-      </Section>
-    </>
-  );
+import { PageIntro } from './Redesign';
+export async function LegalPage({ slug }: {
+    slug: string;
+    path: string;
+}) {
+    const title = slug === 'privacy' ? 'Privacy notice' : slug === 'terms' ? 'Terms of use' : 'Cookie information';
+    return <><PageIntro eyebrow="Legal information" title={title} description="The final version of this notice is not available yet."/><section className="lg-section"><div className="lg-container editorial-copy"><p>The policy details and registered business information need to be confirmed before this notice can be published. Please do not submit sensitive personal or client information.</p></div></section></>;
 }
